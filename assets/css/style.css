@@ -1,0 +1,9 @@
+.header{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    text-shadow: 5px;
+    font-weight: bolder;
+    max-height: 70px;
+    background-image: linear-gradient(to right,rgb(78, 70, 70), navy);
+}
