@@ -1,3 +1,10 @@
+/* defaults */
+body{
+    font-size: 20px;
+}
+
+
+/* properties for header class */
 .header{
     text-align: center;
     color: white;
@@ -7,3 +14,36 @@
     max-height: 70px;
     background-image: linear-gradient(to right,rgb(78, 70, 70), navy);
 }
+
+/* properties for city button class */
+.cityButton{
+    color:black;
+    background-color: rgb(78, 70, 70);
+    border-radius: 5px;
+    margin:5px;
+    text-align: center; 
+    min-width: 70px;
+}
+/* hover properties for city button class */
+.cityButton:hover{
+    color:lightskyblue;
+    box-shadow: 0 -3px 0 0 skyblue;
+}
+
+/* properties for search button id */
+.searchBtn{
+    text-align: center;
+    color:white;
+    border-radius: 5px;
+    background-color: rgb(79, 76, 102);
+    margin: 10px;
+    min-width: 300px;
+    
+}
+
+/* hover properties for search button id */
+.searchBtn:hover{
+    color:lime;
+    box-shadow: 0 -3px 0 0 lime;
+}
+

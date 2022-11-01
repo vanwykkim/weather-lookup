@@ -16,14 +16,14 @@ This program uses a weather api to look up weather at a searched city.
 ![Screenshot of weather at a city with saved cities ](needpic)
 ![Screenshot of local storage city list](needpic.png)
 
-
 ## Link to Project
 
 [https://vanwykkim.github.io/weather-lookup/]
 
 ## Credits
 
-no credits
+used this api with JSON for weather 
+[5 Day Weather Forecast](https://openweathermap.org/forecast5)
 
 ## License
 
