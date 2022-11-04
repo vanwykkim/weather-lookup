@@ -47,3 +47,10 @@ body{
     box-shadow: 0 -3px 0 0 lime;
 }
 
+/* properties for h2 */
+h2{
+    color: navy;
+    font-size: 20px;
+    margin: 10px;
+}
+

@@ -24,6 +24,7 @@ function init(){
 
 function validateCity(cityName){
     //call string for city to get lat and lon
+    //FIXME: get rid of cityName=Seattle;
     var callStringCity = ("http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=5&appid=7b5031efd51fb04c52651f1ab0b416b0");
     fetch(callStringCity)
     .then(function (response) {
@@ -106,8 +107,8 @@ init();
 
 //search button CLICK listener
 searchBtnEl.on("click", function(){
-    var textboxEl = $(input);
-    var cityName = textboxEl.value;
+    var textboxEl = $('#input');
+    var cityName = textboxEl.val().trim();
     validateCity(cityName);
     loadWeather();
     loadCityBtns();
