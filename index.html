@@ -25,30 +25,30 @@
     <header class = "header">
         <hi>Weather Forecast Dashboard</hi>
     </header>
-  <div class="container">
-    <div id="left-column" class = "col justify-content-center">
-      <div class = "row justify-content-center">
-        <input class = "row " id="input" name="City to Search" type="text" placeholder="City to Search" maxlength= 35; rows="2" cols="35"></input>
-      </div>
-      <div class = "row justify-content-center">
+  <div class="container flex-row inline-flex">
+    <div id="left-column" class = "flex-column">
+      <div class = "flex-row justify-content-center">
+        <h2>Search for a City:</h2>
+        <input class  id="input" name="City to Search" type="text" placeholder="Bainbridge Island" maxlength= 35; rows="2" cols="35"></input>
         <button class="searchBtn row" id = "searchBtn" type="button">Search</button>
-      </div>
-    <div class="row justify-content-center">
-      <h2>Last 10 Cities Searched</h2>
+        <h4>Last 10 Cities Searched</h4>
         <!-- buttons go here -->
+        <div id="buttonSection" class = "row justify-content-center"></div>
+      </div>
     </div>
-    <div id="buttonSection" class = "row justify-content-center">
-    </div>
-   </div>
-<div id="right-column" class="col">
-    <div id = "current-weather">
-
-    </div>
-    <div id = "future-weather">
+    <div id="right-column" class="flex-column">
+      <div id = "current-weather" class="container flex-row">
+        <h2 id="cityName"> Atlanta (11/03/2022) icon</h2>
+        <p id="todayTemp">Temp:</p>
+        <p id="todayWind">Wind:</p>
+        <p id="todayHumid">Humidity:</p>
+      </div>
+      <div id = "future-weather" class= "container flex-row">
+        <h3>5 Day Forecast:</h3>
       <!-- put 5 day weather cards here side by side -->
+      </div>
     </div>
   </div>
-</div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="./assets/js/script.js" ></script>
