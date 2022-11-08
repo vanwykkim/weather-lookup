@@ -10,6 +10,8 @@ var cityBtnSectionEl = $('#buttonSection');
 var cityLat;
 //global variable to hold lon
 var cityLon;
+//key for API
+const apiKey = "7b5031efd51fb04c52651f1ab0b416b0";
 
 
 //https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=7b5031efd51fb04c52651f1ab0b416b0
@@ -19,41 +21,65 @@ var cityLon;
 //initialize the page
 function init(){
     //FIXME:if saved cities load them buttons on left - but weather should load blank
-    loadCityBtns();
+   // loadCityBtns();
 }
 
 function validateCity(cityName){
     //call string for city to get lat and lon
-    //FIXME: get rid of cityName=Seattle;
-    var callStringCity = ("http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=5&appid=7b5031efd51fb04c52651f1ab0b416b0");
+    var callStringCity = ("http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=1&appid="+apiKey);
     fetch(callStringCity)
     .then(function (response) {
     return response.json();
     })
     .then(function (data) {
-    console.log(data);
-    // for (var i = 0; i < data.length; i++) {
-    //     ;
-    // }
+        if(data.length == 0){
+            cityLat = null;
+            cityLon = null;
+        }else{
+        console.log(data);
+        cityLat=data[0].lat;
+        cityLon=data[0].lon;
+        console.log(cityLat);
+        console.log(cityLon);
+        }
+    })
+    .then(function(){ 
+        if(cityLat == null){
+            //do nothing if can't search
+            alert(cityName+" is not a searchable city. Please try again.");
+        }else{ 
+            loadWeather();   
+            var indexNum;
+            var contains = false; 
+            theCityArray = JSON.parse(localStorage.getItem("myCityArray"));
+            if(theCityArray == null || theCityArray == 'undefined'){
+            //if no items yet can't have lenght?
+            theCityArray = [cityName];
+            }else {
+                for(var i = 0; i < theCityArray.length; i++){
+                    //don't check case sensitive
+                    if(theCityArray[i].toLowerCase()==cityName.toLowerCase()){
+                    indexNum = i;
+                    contains = true; 
+                    }
+                }
+                if(contains){ 
+                    //if the array already includes the City move it to front
+                    theCityArray.splice(indexNum,1);
+                    theCityArray.unshift(cityName);
+                }else if(theCityArray.length < 10){
+                    //just need to add
+                    theCityArray.unshift(cityName);
+                }else{
+                    //remove from end and add to front so load in order on buttons with newest on top
+                    theCityArray.pop();
+                    theCityArray.unshift(cityName);
+                }
+            }
+            //set updated array in storage
+            localStorage.setItem("myCityArray", JSON.stringify(theCityArray)); 
+        }
     });
-    //FIXME:check if city name is valid returned object? if not text box, exit function and alert bad city name show bad name in alert
-
-    //if valid city add it to cityArray in storage
-    theCityArray = JSON.parse(localStorage.getItem("myCityArray"));
-    //TODO: check if city is in the array already. If so remove from current spot and put in front
-    if(theCityArray == null || theCityArray == 'undefined'){
-        //if no items yet can't have lenght?
-        theCityArray = [cityName];
-    }else if(theCityArray.length < 10){
-        //just need to add
-        theCityArray.unshift(cityName);
-    }else{
-        //remove from end and add to front so load in order on buttons with newest on top
-        theCityArray.pop();
-        theCityArray.unshift(cityName);
-    }
-      //set updated array in storage
-      localStorage.setItem("myCityArray", JSON.stringify(theCityArray));
 }
 
 function loadCityBtns(){
@@ -81,9 +107,11 @@ function loadCityBtns(){
 }
 
 function loadWeather(){
+    console.log(cityLat+ " lat in load");
+    console.log(cityLon +" lon in load");
     
     //variable to hold the api call string
-    var callStringWeather = ("//https://api.openweathermap.org/data/2.5/forecast?lat=" + cityLat+"&lon="+cityLon+"&appid=7b5031efd51fb04c52651f1ab0b416b0");
+    var callStringWeather = ("https://api.openweathermap.org/data/2.5/forecast?lat="+cityLat+"&lon="+cityLon+"&units=imperial&cnt=6&appid="+apiKey);
  //FIXME:get weather object    
 //TODO:load weather section and 5 days cards for city called
 //FIXME: load today section DATE, ICON, CURRENT TEMP? //HIGH, //LOW, WIND, HUMIDITY
@@ -91,10 +119,12 @@ function loadWeather(){
 //got name off of text for button less computing than pulling from storage
     fetch(callStringWeather)
     .then(function (response) {
-    return response.json();
+        return response.json();
     })
     .then(function (data) {
+        console.log("this is the weather data");
     console.log(data);
+    //data[0]
     // for (var i = 0; i < data.length; i++) {
     //     ;
     // }
@@ -110,8 +140,8 @@ searchBtnEl.on("click", function(){
     var textboxEl = $('#input');
     var cityName = textboxEl.val().trim();
     validateCity(cityName);
-    loadWeather();
     loadCityBtns();
+    textboxEl.val('');
 });
 
 
@@ -119,8 +149,6 @@ searchBtnEl.on("click", function(){
 cityBtnEl.on("click", function(){
     //cityName already validated before put on button so don't need to validate again.
     var cityName = this.name;
-    //FIXME:get lat and lon or have it saved in array with cities
+    //validate city will get the lat and lon and then load the weather in that function
     validateCity(cityName);
-    //load the weather info for the city into the weather section and 5 day cards
-    loadWeather();
 });

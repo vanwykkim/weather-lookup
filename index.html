@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Lookup</title>
+    <title>Weather Forecast</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -23,19 +23,32 @@
 </head>
 <body>
     <header class = "header">
-        <hi>Weather Dashboard</hi>
+        <hi>Weather Forecast Dashboard</hi>
     </header>
-
-    <div>
-        <input id="input" name="City to Search" type="text" placeholder="City to Search" maxlength= 30; rows="2" cols="30"></input>
-        <button class="searchBtn" id = "searchBtn" type="button">Search</button>
-    </div>
-    <div id="buttonSection">
-        <!-- make a title saying last 10 searched cities for cities button area -->
-        <h2>Last 10 Cities Searched</h2>
+  <div class="container">
+    <div id="left-column" class = "col justify-content-center">
+      <div class = "row justify-content-center">
+        <input class = "row " id="input" name="City to Search" type="text" placeholder="City to Search" maxlength= 35; rows="2" cols="35"></input>
+      </div>
+      <div class = "row justify-content-center">
+        <button class="searchBtn row" id = "searchBtn" type="button">Search</button>
+      </div>
+    <div class="row justify-content-center">
+      <h2>Last 10 Cities Searched</h2>
         <!-- buttons go here -->
+    </div>
+    <div id="buttonSection" class = "row justify-content-center">
+    </div>
+   </div>
+<div id="right-column" class="col">
+    <div id = "current-weather">
 
     </div>
+    <div id = "future-weather">
+      <!-- put 5 day weather cards here side by side -->
+    </div>
+  </div>
+</div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="./assets/js/script.js" ></script>
