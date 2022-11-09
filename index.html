@@ -25,15 +25,16 @@
     <header class = "header">
         <hi>Weather Forecast Dashboard</hi>
     </header>
-  <div id = "mainPage" class="container flex-column flex-start">
-    <div id="left-column" class = "flex-column align-content-center">
-      <div class = "flex-row justify-content-center">
+  <div id = "mainPage"></div> 
+  <div id= rowMainPage; class="row">
+    <div class = "column">
+      <div id="left-column" >
         <h2>Search for a City:</h2>
         <input class  id="input" name="City to Search" type="text" placeholder="Bainbridge Island" maxlength= 35; rows="2" cols="35"></input>
-        <button class="searchBtn row" id = "searchBtn" type="button">Search</button>
-        <h4>Last 10 Cities Searched</h4>
+        <button class="searchBtn" id = "searchBtn" type="button">Search</button>
+        <h4>Last Cities Searched</h4>
         <!-- buttons go here -->
-        <div id="buttonSection" class = "flex-column justify-content-center">
+        <div id="buttonSection" >
           <button id = "0Btn" class="button cityButton" style="display: none;" type="button"></button>
           <button id = "1Btn" class="button cityButton" style="display: none;" type="button"></button>
           <button id = "2Btn" class="button cityButton" style="display: none;" type="button"></button>
@@ -47,18 +48,77 @@
         </div>
       </div>
     </div>
-    <div id="right-column" class="flex-column">
+    <div class="column">   
+      <div id="right-column" >
       <div id = "current-weather" class="container flex-row">
         <h2 id="cityName"> Atlanta (11/03/2022) icon</h2>
         <p class="currentWeatherP" id="todayTemp">Temp:</p>
         <p class="currentWeatherP" id="todayWind">Wind:</p>
         <p class="currentWeatherP" id="todayHumid">Humidity:</p>
       </div>
-      <div id = "future-weather" class= "container flex-row">
+      <div id = "future-weather" class= "container row">
         <h3>5 Day Forecast:</h3>
+        <div class="container flex-column">
+        <div class = "card row">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 id="0cardTitle">Date</h5>
+            <div id="0cardIcon">iconHere</div>
+            <p id="0Temp">Temp:</p>
+            <p id="0Wind">Wind:</p>
+            <p id="0Humidity">Humidity:</p>
+          </div>
+        </div>
+      </div>
+      <div class = "card row">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 id="1cardTitle">Date</h5>
+            <div id="1cardIcon">iconHere</div>
+            <p id="1Temp">Temp:</p>
+            <p id="1Wind">Wind:</p>
+            <p id="1Humidity">Humidity:</p>
+          </div>
+        </div>
+      </div>
+      <div class = "card row">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 id="2cardTitle">Date</h5>
+            <div id="2cardIcon">iconHere</div>
+            <p id="2Temp">Temp:</p>
+            <p id="2Wind">Wind:</p>
+            <p id="2Humidity">Humidity:</p>
+          </div>
+        </div>
+      </div>
+      <div class = "card row">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 id="3cardTitle">Date</h5>
+            <div id="3cardIcon">iconHere</div>
+            <p id="3Temp">Temp:</p>
+            <p id="3Wind">Wind:</p>
+            <p id="3Humidity">Humidity:</p>
+          </div>
+        </div>
+      </div>
+      <div class = "card row">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 id="4cardTitle">Date</h5>
+            <div id="4cardIcon">iconHere</div>
+            <p id="4Temp">Temp:</p>
+            <p id="4Wind">Wind:</p>
+            <p id="4Humidity">Humidity:</p>
+          </div>
+        </div>
+      </div>
+        </div>
       <!-- put 5 day weather cards here side by side -->
       </div>
     </div>
+  </div>
   </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
