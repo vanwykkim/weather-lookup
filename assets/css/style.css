@@ -15,6 +15,9 @@ body{
     max-height: 70px;
     background-image: linear-gradient(to right,rgb(78, 70, 70), navy);
 }
+#mainPage{
+    display:flex;
+}
 #left-column{
     display:flex;
     margin: 10px;
@@ -66,7 +69,8 @@ h3{
     margin: 10px;
     font-weight: bold;
 }
-h4{
+h4{ 
+    border-top:3px solid rgb(78, 70, 70); 
     color: navy;
     font-size: 20px;
     margin: 10px;
@@ -75,7 +79,7 @@ h4{
     display:flex;
     max-width:75%;
 }
-p{
+.currentWeatherP{
     font-size: 20px
 }
 

@@ -21,7 +21,7 @@ const apiKey = "7b5031efd51fb04c52651f1ab0b416b0";
 //initialize the page
 function init(){
     //FIXME:if saved cities load them buttons on left - but weather should load blank
-   // loadCityBtns();
+   loadCityBtns();
 }
 
 function validateCity(cityName){
@@ -78,6 +78,8 @@ function validateCity(cityName){
             }
             //set updated array in storage
             localStorage.setItem("myCityArray", JSON.stringify(theCityArray)); 
+            //reload buttons with new city name after reset array
+            loadCityBtns();
         }
     });
 }
@@ -90,16 +92,16 @@ function loadCityBtns(){
     if(theCityArray !== null && theCityArray !== 'undefined'){
         for(var i = 0; i<theCityArray.length;i++){
             //create/append a city button 
-        var cityButtonEl = $('<button>');
+        var name ="#"+i+"Btn";
+        var cityButtonEl = $(name);
         //set a id to know which element you're grabbing to save in listener function
-        cityButtonEl.attr('id', i);
-        cityButtonEl.attr('class', 'btn');
-        cityButtonEl.addClass('cityBtn');
+        //cityButtonEl.attr('id', i);
+        cityButtonEl.show();
+        //cityButtonEl.addClass('cityBtn');
         cityButtonEl.attr('value',theCityArray[i]);
-        cityButtonEl.attr('type','button');
-        cityBtnSectionEl.append(cityButtonEl);
+        //cityButtonEl.attr('type','button');
+        //cityBtnSectionEl.append(cityButtonEl);
         }
-        //FIXME: do you need to make buttons everytime refresh page or do they persist over
     //TODO:if buttons made only change text otherwise make buttons if button id does not exist for index yet make it. 
     //TODO:up to 10 buttons make a button with id of saved city array index to look up city from storage and set text when change
     //TODO:after 10 buttons just change text
@@ -140,7 +142,6 @@ searchBtnEl.on("click", function(){
     var textboxEl = $('#input');
     var cityName = textboxEl.val().trim();
     validateCity(cityName);
-    loadCityBtns();
     textboxEl.val('');
 });
 
