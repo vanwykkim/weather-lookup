@@ -98,7 +98,9 @@ function loadCityBtns(){
         //cityButtonEl.attr('id', i);
         cityButtonEl.show();
         //cityButtonEl.addClass('cityBtn');
-        cityButtonEl.attr('value',theCityArray[i]);
+        //cityButtonEl.attr('value',theCityArray[i]);
+        cityButtonEl.html(theCityArray[i]);
+        //.val(theCityArray[i]);
         //cityButtonEl.attr('type','button');
         //cityBtnSectionEl.append(cityButtonEl);
         }

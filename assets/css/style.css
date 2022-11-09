@@ -22,6 +22,7 @@ body{
     width: 100%;
 }
 #left-column{
+    margin-top:50px;
     display:flex;
     margin: 10px;
     max-width: 25;
@@ -31,31 +32,39 @@ body{
     /* width:25%; */
 }
 #right-column{
+    margin-top:50px;
     display:flex;
     flex-direction: column;
     flex-wrap: wrap;
+    min-width:70%;
 }
 #buttonSection{
   flex-grow: 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  
+  justify-items: center;
 }
 
 /* properties for city button class */
 .cityButton{
-    color:black;
-    background-color: rgb(78, 70, 70);
+    color: white;
+    font-weight: bolder;
+    background-color:gray;
     border-radius: 5px;
-    margin:5px;
+    margin-left:20px;
+    margin-right:20px;
+    margin-bottom:5px;
     text-align: center; 
-    min-width: 70px;
+    min-width: 200px;
+    min-height: 40px;
+    font-size: 16px;
+    border-color:navy;
 }
 /* hover properties for city button class */
 .cityButton:hover{
     color:lightskyblue;
-    box-shadow: 0 -3px 0 0 skyblue;
+    box-shadow: 0 -5px 0 0 skyblue;
 }
 
 /* properties for search button id */
@@ -66,6 +75,7 @@ body{
     background-color: rgb(79, 76, 102);
     margin: 10px;
     min-width: 300px;
+    margin-left:20px;
     
 }
 
@@ -78,7 +88,6 @@ body{
 h2{
     color:rgb(78, 70, 70);
     font-size: 30px;
-    margin: 10px;
     font-weight: bold;
 }
 /* properties for h3 */
@@ -93,22 +102,39 @@ h4{
     color: navy;
     font-size: 20px;
     margin: 10px;
+    text-align:center;
 }
-
+#input{
+    margin-left:15px;
+}
+#searchHeader{
+    margin-top:10px;
+    margin-left: 20px;
+}
 .currentWeatherP{
     font-size: 20px
 }
 
 #current-weather{
 min-width: 60%;
-min-height: 30%;
+min-height: 300px;
 border-style: outset;
 border-color: linear-gradient(to right,rgb(78, 70, 70), navy);
 border-width: 10px;
+padding: 20px;
+margin-right: 50px;
+}
+#dayForecastContainer{
+    display:flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-content:space-around;
 }
 .card{
+    border: 5px solid navy;
     background-color:rgb(79, 76, 102);
     color: white;
     font-size: 16px;
     font-weight: bold;
+    margin-right: 20px;
 }

@@ -29,27 +29,27 @@
   <div id= rowMainPage; class="row">
     <div class = "column">
       <div id="left-column" >
-        <h2>Search for a City:</h2>
+        <h2 id="searchHeader">Search for a City:</h2>
         <input class  id="input" name="City to Search" type="text" placeholder="Bainbridge Island" maxlength= 35; rows="2" cols="35"></input>
         <button class="searchBtn" id = "searchBtn" type="button">Search</button>
         <h4>Last Cities Searched</h4>
         <!-- buttons go here -->
         <div id="buttonSection" >
-          <button id = "0Btn" class="button cityButton" style="display: none;" type="button"></button>
-          <button id = "1Btn" class="button cityButton" style="display: none;" type="button"></button>
-          <button id = "2Btn" class="button cityButton" style="display: none;" type="button"></button>
-          <button id = "3Btn" class="button cityButton" style="display: none;" type="button"></button>
-          <button id = "4Btn" class="button cityButton" style="display: none;" type="button"></button>
-          <button id = "5Btn" class="button cityButton" style="display: none;" type="button"></button>
-          <button id = "6Btn" class="button cityButton" style="display: none;" type="button"></button>
-          <button id = "7Btn" class="button cityButton" style="display: none;" type="button"></button>
-          <button id = "8Btn" class="button cityButton" style="display: none;" type="button"></button>
-          <button id = "9Btn" class="button cityButton" style="display: none;" type="button"></button>
+          <button id = "0Btn" class="button cityButton" style="display: none; visibility: visible;" type="button"></button>
+          <button id = "1Btn" class="button cityButton" style="display: none; visibility: visible;" type="button"></button>
+          <button id = "2Btn" class="button cityButton" style="display: none; visibility: visible;" type="button"></button>
+          <button id = "3Btn" class="button cityButton" style="display: none; visibility: visible;" type="button"></button>
+          <button id = "4Btn" class="button cityButton" style="display: none; visibility: visible;" type="button"></button>
+          <button id = "5Btn" class="button cityButton" style="display: none; visibility: visible;" type="button"></button>
+          <button id = "6Btn" class="button cityButton" style="display: none; visibility: visible;" type="button"></button>
+          <button id = "7Btn" class="button cityButton" style="display: none; visibility: visible;" type="button"></button>
+          <button id = "8Btn" class="button cityButton" style="display: none; visibility: visible;" type="button"></button>
+          <button id = "9Btn" class="button cityButton" style="display: none; visibility: visible;" type="button"></button>
         </div>
       </div>
     </div>
-    <div class="column">   
-      <div id="right-column" >
+    <div id="right-column" class="column">   
+      <div class="flex-row">
       <div id = "current-weather" class="container flex-row">
         <h2 id="cityName"> Atlanta (11/03/2022) icon</h2>
         <p class="currentWeatherP" id="todayTemp">Temp:</p>
@@ -58,8 +58,8 @@
       </div>
       <div id = "future-weather" class= "container row">
         <h3>5 Day Forecast:</h3>
-        <div class="container flex-column">
-        <div class = "card row">
+        <div id = "dayForecastContainer" class="container flex-row">
+        
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 id="0cardTitle">Date</h5>
@@ -69,8 +69,8 @@
             <p id="0Humidity">Humidity:</p>
           </div>
         </div>
-      </div>
-      <div class = "card row">
+      
+   
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 id="1cardTitle">Date</h5>
@@ -80,8 +80,8 @@
             <p id="1Humidity">Humidity:</p>
           </div>
         </div>
-      </div>
-      <div class = "card row">
+      
+    
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 id="2cardTitle">Date</h5>
@@ -91,8 +91,8 @@
             <p id="2Humidity">Humidity:</p>
           </div>
         </div>
-      </div>
-      <div class = "card row">
+      
+      
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 id="3cardTitle">Date</h5>
@@ -102,8 +102,8 @@
             <p id="3Humidity">Humidity:</p>
           </div>
         </div>
-      </div>
-      <div class = "card row">
+    
+      <!-- <div class = "card row"> -->
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 id="4cardTitle">Date</h5>
@@ -113,9 +113,8 @@
             <p id="4Humidity">Humidity:</p>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
         </div>
-      <!-- put 5 day weather cards here side by side -->
       </div>
     </div>
   </div>
