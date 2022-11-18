@@ -51,7 +51,10 @@
     <div id="right-column" class="column">   
       <div class="flex-row">
       <div id = "current-weather" class="container flex-row">
-        <h2 id="cityName"> Atlanta (11/03/2022) icon</h2>
+       <div class = "todayHeader column"> 
+        <div><h2 id="cityName"> Atlanta (11/03/2022) </h2></div>
+       <div> <img id="iconToday"  src="" alt="Icon"></div>
+      </div>
         <p class="currentWeatherP" id="todayTemp">Temp:</p>
         <p class="currentWeatherP" id="todayWind">Wind:</p>
         <p class="currentWeatherP" id="todayHumid">Humidity:</p>
@@ -63,7 +66,7 @@
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 id="0cardTitle">Date</h5>
-            <div id="0cardIcon">iconHere</div>
+            <img id="0cardIcon"  src="" alt="Icon">
             <p id="0Temp">Temp:</p>
             <p id="0Wind">Wind:</p>
             <p id="0Humidity">Humidity:</p>
@@ -103,7 +106,6 @@
           </div>
         </div>
     
-      <!-- <div class = "card row"> -->
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 id="4cardTitle">Date</h5>
@@ -113,7 +115,7 @@
             <p id="4Humidity">Humidity:</p>
           </div>
         </div>
-      <!-- </div> -->
+
         </div>
       </div>
     </div>
