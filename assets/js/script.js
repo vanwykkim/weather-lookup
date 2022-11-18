@@ -161,6 +161,15 @@ function loadWeather(){
         $(cardW).text("Wind: " + data.list[i].wind.speed);
         $(cardH).text("Humidity: " + data.list[i].main.humidity);
      }
+            // var cardContainerEl = $("#dayForecastContainer");
+            // for(let i = 0; i < 5 ; i++){
+            //     var newCardEl = {};
+            //     cardContainerEl.append(newCardEl);
+            // }
+
+
+
+
     });
 }
 

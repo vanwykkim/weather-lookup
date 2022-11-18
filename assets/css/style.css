@@ -89,7 +89,10 @@ body{
 .todayHeader{
     display:flex;
 }
-
+img{
+    background-color: lightgray;
+    border-radius: 25px;
+}
 #iconToday{
     margin-left:10px;
     margin-bottom:10px;
