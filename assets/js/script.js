@@ -22,7 +22,7 @@ function init(){
 
 function validateCity(cityName){
     //call string for city to get lat and lon
-    var callStringCity = ("http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=1&appid="+apiKey);
+    var callStringCity = ("https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=1&appid="+apiKey);
     fetch(callStringCity)
     .then(function (response) {
     return response.json();
