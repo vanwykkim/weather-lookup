@@ -12,16 +12,11 @@ var cityLat;
 var cityLon;
 //key for API
 const apiKey = "7b5031efd51fb04c52651f1ab0b416b0";
-
-
-
-//https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=7b5031efd51fb04c52651f1ab0b416b0
-// [5 Day Weather Forecast](https://openweathermap.org/forecast5)
+let dateG;
 
 
 //initialize the page
 function init(){
-    //FIXME:if saved cities load them buttons on left - but weather should load blank
    loadCityBtns();
 }
 
@@ -99,9 +94,6 @@ function loadCityBtns(){
         cityButtonEl.html(theCityArray[i]);
 
         }
-    //TODO:if buttons made only change text otherwise make buttons if button id does not exist for index yet make it. 
-    //TODO:up to 10 buttons make a button with id of saved city array index to look up city from storage and set text when change
-    //TODO:after 10 buttons just change text
     }
 }
 
@@ -120,18 +112,17 @@ function loadWeather(){
     console.log(data);
     //load todays weather
     var iconUrl = "https://openweathermap.org/img/wn/"+data.weather[0].icon +".png";
-    
-    $('#cityName').text(data.name+ " "+ data.dt);
+    dateG = moment.unix(data.dt);
+    $('#cityName').text(data.name+ " "+ dateG.format("MM/DD/YYYY"));
     $('#iconToday').attr("src", iconUrl);
-    $('#todayTemp').text("Temp: " + data.main.temp);
-    $('#todayWind').text("Wind: " + data.wind.speed);
-    $('#todayHumid').text("Humidity: " + data.main.humidity);
+    $('#todayTemp').text("Temp: " + data.main.temp +" F");
+    $('#todayWind').text("Wind: " + data.wind.speed+" mph");
+    $('#todayHumid').text("Humidity: " + data.main.humidity+"%");
     });
 
     //variable to hold the api call string
     var callStringWeather5 = ("https://api.openweathermap.org/data/2.5/forecast?lat="+cityLat+"&lon="+cityLon+"&units=imperial&&appid="+apiKey);
-//FIXME: load next 5 days cards DATE, ICON, HIGH, //LOW, WIND HUMIDITY
-//got name off of text for button less computing than pulling from storage
+
     fetch(callStringWeather5)
     .then(function (response) {
         return response.json();
@@ -145,30 +136,31 @@ function loadWeather(){
     var cardT;
     var cardW;
     var cardH;
-    var iconUrl
-   // for (var i = 0; i < data.length; i++) {
+    var iconUrl;
+    var thisDate;
+    var cardCount = 0;
+    var i = 0;
 
-    for (var i = 0; i < 5; i++) {
-        cardD = "#" + i + "cardTitle";
-        cardI = "#" + i + "cardIcon";
-        cardT = "#" + i + "Temp";
-        cardW = "#" + i + "Wind";
-        cardH = "#" + i + "Humidity";
-        $(cardD).text(data.list[i].dt);
+    while(cardCount< 5 || i < data.list.length) {
+        thisDate = moment.unix(data.list[i].dt);
+        if(dateG.format("DD")!==thisDate.format("DD")){
+        dateG = thisDate;
+        cardD = "#" + cardCount + "cardTitle";
+        cardI = "#" + cardCount + "cardIcon";
+        cardT = "#" + cardCount + "Temp";
+        cardW = "#" + cardCount + "Wind";
+        cardH = "#" + cardCount + "Humidity";
+        $(cardD).text(thisDate.format("MM/DD/YYYY"));
         iconUrl = "https://openweathermap.org/img/wn/"+data.list[i].weather[0].icon +".png";
         $(cardI).attr("src", iconUrl);
-        $(cardT).text("Temp: " + data.list[i].wind.speed);
-        $(cardW).text("Wind: " + data.list[i].wind.speed);
-        $(cardH).text("Humidity: " + data.list[i].main.humidity);
+        $(cardT).text("Temp: " + data.list[i].main.temp+" F");
+        $(cardW).text("Wind: " + data.list[i].wind.speed+" mph");
+        $(cardH).text("Humidity: " + data.list[i].main.humidity+"%");
+        cardCount++;
+        }
+        i++
      }
-            // var cardContainerEl = $("#dayForecastContainer");
-            // for(let i = 0; i < 5 ; i++){
-            //     var newCardEl = {};
-            //     cardContainerEl.append(newCardEl);
-            // }
-
-
-
+  
 
     });
 }

@@ -12,9 +12,14 @@ This program uses a weather api to look up weather at a searched city.
 
 ## Screenshot
 
-![Screenshot of website startup](needpi.png)
-![Screenshot of weather at a city with saved cities ](needpic)
-![Screenshot of local storage city list](needpic.png)
+### Screenshot of website startup
+![Screenshot of website startup](2022-11-18%20(1).png)
+
+### Screenshot of weather at a city with saved cities
+![Screenshot of weather at a city with saved cities ](2022-11-18%20(2).png)
+
+### Screenshot of local storage city list
+![Screenshot of local storage city list](2022-11-18%20(3).png)
 
 ## Link to Project
 
@@ -22,7 +27,7 @@ This program uses a weather api to look up weather at a searched city.
 
 ## Credits
 
-used this api with JSON for weather 
+used this API with JSON for weather 
 [5 Day Weather Forecast](https://openweathermap.org/forecast5)
 
 ## License
